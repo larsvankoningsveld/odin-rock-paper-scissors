@@ -1,7 +1,10 @@
 function playGame(){
   let roundsWon = 0;
   let totalRounds = 1;
-  for (let i = 1; i <= 5; i++){
+  
+  for (let i = 1; i <= 5; i++) playRound()
+  
+  function playRound(){
     const playerSelection = prompt("Rock, paper, scissors, shoot!").toLowerCase()
     const computerSelection = getComputerChoice()
 
@@ -47,7 +50,7 @@ function playGame(){
     console.log("                   ")
     totalRounds += 1
   }
-    return roundsWon
+  return roundsWon
 }
 
 let totalRoundsWon = playGame()
