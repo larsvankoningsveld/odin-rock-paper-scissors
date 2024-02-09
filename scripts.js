@@ -1,3 +1,6 @@
+const playerSelection = prompt("Rock, paper, scissors, shoot!")
+const computerSelection = getComputerChoice()
+
 function getComputerChoice(){
   const RANDOM_NUMBER = Math.random();
   console.log(RANDOM_NUMBER)
@@ -6,4 +9,8 @@ function getComputerChoice(){
   else return "Scissors"
 }
 
-console.log(getComputerChoice())
+console.log("computer selection: " + computerSelection)
+console.log("player selection: " + playerSelection)
+
+
+
