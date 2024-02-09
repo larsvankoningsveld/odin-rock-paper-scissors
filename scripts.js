@@ -1,7 +1,8 @@
 function getComputerChoice(){
   const RANDOM_NUMBER = Math.random();
-  if (RANDOM_NUMBER < 0,33) return "Rock"
-  else if (RANDOM_NUMBER >= 0,66) return "Paper"
+  console.log(RANDOM_NUMBER)
+  if (RANDOM_NUMBER < 0.33) return "Rock"
+  else if (RANDOM_NUMBER >= 0.66) return "Paper"
   else return "Scissors"
 }
 
