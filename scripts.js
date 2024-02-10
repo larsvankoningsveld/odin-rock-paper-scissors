@@ -1,13 +1,15 @@
 function playGame(){
   let roundsWon = 0;
-  let totalRounds = 1;
+  let roundsLost = 0;
+  let totalRounds = 0;
   
-  for (let i = 1; i <= 5; i++) playRound()
+  for (let i = 1; i <= 2; i++) playRound()
   
   function playRound(){
     const playerSelection = prompt("Rock, paper, scissors, shoot!").toLowerCase()
     const computerSelection = getComputerChoice()
 
+    totalRounds += 1
     function getComputerChoice(){
       const RANDOM_NUMBER = Math.random();
       if (RANDOM_NUMBER < 0.33) return "rock"
@@ -16,6 +18,7 @@ function playGame(){
     }
 
     //Print selections and win or loss message
+    console.log(" ")
     console.log("Round: " + totalRounds)
     console.log("You chose: " + playerSelection)
     console.log("Your opponent chose: " + computerSelection)
@@ -44,24 +47,29 @@ function playGame(){
     
     if (result === "win"){
       roundsWon += 1 
-      console.log("You won!")
+      console.log("You win!")
     } 
-    else console.log("You lost.")
-    console.log("                   ")
-    totalRounds += 1
+    else if (result === "tie"){
+      console.log("It's a tie.")
+    }
+    else {
+      roundsLost += 1
+      console.log ("You lose.")
+    }
   }
-  return roundsWon
+  return roundsArray = [roundsWon, roundsLost, totalRounds];
 }
 
 let totalRoundsWon = playGame()
 
-console.log("                   ")
+console.log(" ")
 console.log("-------------------")
 console.log("The game has ended!")
 console.log("-------------------")
-console.log("                   ")
-console.log("You have won " + totalRoundsWon + " out of 5 rounds.")
-if (totalRoundsWon < 3) console.log("That means you lost. Better luck next time!")
+console.log(" ")
+console.log("You have won " + roundsArray[0] + " out of " + roundsArray[2] + " rounds, and your opponent won " + roundsArray[1])
+if (roundsArray[0] < roundsArray[1]) console.log("That means you lost. Better luck next time!")
+else if (roundsArray[0] == roundsArray[1]) console.log("The game is a tie. Try a again!")
 else console.log("You won! Nice job!")
 
 
