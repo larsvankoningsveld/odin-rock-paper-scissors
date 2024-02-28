@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <script src="scripts.js"></script>
-  </body>
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .flex {
+      display: flex;
+      column-gap: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fullscreen {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+  </style>
+  <script src="scripts.js" defer></script>
+</head>
+
+<body>
+  <div class="flex fullscreen">
+    <button id="rock" type="button">Rock</button>
+    <button id="paper" type="button">Paper</button>
+    <button id="scissors" type="button">Scissors</button>
+  </div>
+</body>
+
 </html>
