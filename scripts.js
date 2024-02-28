@@ -3,7 +3,7 @@ function playGame(){
   let roundsLost = 0;
   let totalRounds = 0;
   
-  for (let i = 1; i <= 2; i++) playRound()
+  for (let i = 1; i <= 5; i++) playRound()
   
   function playRound(){
     const playerSelection = prompt("Rock, paper, scissors, shoot!").toLowerCase()
@@ -57,7 +57,9 @@ function playGame(){
       console.log ("You lose.")
     }
   }
+  
   return roundsArray = [roundsWon, roundsLost, totalRounds];
+
 }
 
 let totalRoundsWon = playGame()
@@ -67,7 +69,9 @@ console.log("-------------------")
 console.log("The game has ended!")
 console.log("-------------------")
 console.log(" ")
+
 console.log("You have won " + roundsArray[0] + " out of " + roundsArray[2] + " rounds, and your opponent won " + roundsArray[1])
+
 if (roundsArray[0] < roundsArray[1]) console.log("That means you lost. Better luck next time!")
 else if (roundsArray[0] == roundsArray[1]) console.log("The game is a tie. Try a again!")
 else console.log("You won! Nice job!")
