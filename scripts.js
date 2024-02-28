@@ -1,6 +1,7 @@
 const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
 const btnScissors = document.querySelector('#scissors');
+const results = document.querySelector('#results')
 
 btnRock.addEventListener('click', chooseRock);
 btnPaper.addEventListener('click', choosePaper);
@@ -29,8 +30,13 @@ function playRound(playerSelection){
   }
 
   //Print selections and win or loss message
-  console.log("You chose: " + playerSelection)
-  console.log("Your opponent chose: " + computerSelection)
+  const playerLog = document.createElement('p');
+  playerLog.textContent = `You chose: ${playerSelection}`;
+  results.appendChild(playerLog);
+  
+  const computerLog = document.createElement('p');
+  computerLog.textContent = `They chose: ${computerSelection}`;
+  results.appendChild(computerLog);
 
   //Compare and determine winner
   function calcResult (){
@@ -53,15 +59,19 @@ function playRound(playerSelection){
     return res
   }
   let result = calcResult();
+
+  const resultLog = document.createElement('p');
+
   
   if (result === "win"){
-    console.log("You win!")
+    resultLog.textContent = 'You win!'
   } 
   else if (result === "tie"){
-    console.log("It's a tie.")
+    resultLog.textContent = "It's a tie."
   }
   else {
-    console.log ("You lose.")
+    resultLog.textContent = "You lose..."
   }
-  console.log(" ")
+  results.appendChild(resultLog)
+
 }
