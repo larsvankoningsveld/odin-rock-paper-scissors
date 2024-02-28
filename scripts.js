@@ -19,6 +19,8 @@ function chooseScissors(){
   playRound('scissors');
 }
 
+let roundsWon = 0;
+
 function playRound(playerSelection){
   const computerSelection = getComputerChoice()
 
@@ -65,6 +67,7 @@ function playRound(playerSelection){
   
   if (result === "win"){
     resultLog.textContent = 'You win!'
+    roundsWon += 1
   } 
   else if (result === "tie"){
     resultLog.textContent = "It's a tie."
@@ -73,5 +76,6 @@ function playRound(playerSelection){
     resultLog.textContent = "You lose..."
   }
   results.appendChild(resultLog)
+  console.log(roundsWon)
 
 }
