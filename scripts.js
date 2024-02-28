@@ -1,20 +1,26 @@
-let roundsWon = 0;
-let roundsLost = 0;
-let totalRounds = 0;
-
 const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
 const btnScissors = document.querySelector('#scissors');
 
-btnRock.addEventListener('click', playRound);
-btnPaper.addEventListener('click', playRound)
-btnScissors.addEventListener('click', playRound)
+btnRock.addEventListener('click', chooseRock);
+btnPaper.addEventListener('click', choosePaper);
+btnScissors.addEventListener('click', chooseScissors);
 
-function playRound(){
-  const playerSelection = prompt("Rock, paper, scissors, shoot!").toLowerCase()
+function chooseRock(){
+  playRound('rock');
+}
+
+function choosePaper(){
+  playRound('paper');
+}
+
+function chooseScissors(){
+  playRound('scissors');
+}
+
+function playRound(playerSelection){
   const computerSelection = getComputerChoice()
 
-  totalRounds += 1
   function getComputerChoice(){
     const RANDOM_NUMBER = Math.random();
     if (RANDOM_NUMBER < 0.33) return "rock"
@@ -23,8 +29,6 @@ function playRound(){
   }
 
   //Print selections and win or loss message
-  console.log(" ")
-  console.log("Round: " + totalRounds)
   console.log("You chose: " + playerSelection)
   console.log("Your opponent chose: " + computerSelection)
 
@@ -51,14 +55,13 @@ function playRound(){
   let result = calcResult();
   
   if (result === "win"){
-    roundsWon += 1 
     console.log("You win!")
   } 
   else if (result === "tie"){
     console.log("It's a tie.")
   }
   else {
-    roundsLost += 1
     console.log ("You lose.")
   }
+  console.log(" ")
 }
